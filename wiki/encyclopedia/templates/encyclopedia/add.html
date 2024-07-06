@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %} {% block title %} Encyclopedia
+{%endblock %} {% block body %}
+<h1>Add new entry</h1>
+
+<form action="{% url 'encyclopedia:add' %}" method="post">
+    {% if errorMessage %}
+    <p class="error-message">{{ errorMessage }}</p>
+    {% endif %} {% csrf_token %} {{ form}}
+    <input type="submit" />
+</form>
+
+{% endblock %}
